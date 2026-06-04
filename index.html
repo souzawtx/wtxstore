@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forge Training 💪</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h1>🔥 Forge</h1>
+      <div class="menu">
+        <button onclick="carregarTreino(0)" class="menu-btn active">Treino A - Peito/Tríceps</button>
+        <button onclick="carregarTreino(1)" class="menu-btn">Treino B - Costas/Bíceps</button>
+        <button onclick="carregarTreino(2)" class="menu-btn">Treino C - Pernas/Ombros</button>
+      </div>
+      <button onclick="verHistorico()" class="history-btn">📜 Histórico</button>
+    </div>
+
+    <!-- Main Screen -->
+    <div class="main">
+      <header>
+        <h2 id="treino-titulo">Treino A - Peito e Tríceps</h2>
+        <div class="progress-bar">
+          <div id="progress" style="width: 0%"></div>
+        </div>
+      </header>
+
+      <div id="exercise-card" class="exercise-card">
+        <div class="muscle-tag" id="musculo-tag">Peito</div>
+        <h1 id="exercicio-nome">Supino Reto com Barra</h1>
+        
+        <div class="timer-container">
+          <div id="timer" class="timer">00:00</div>
+          <div id="timer-label" class="timer-label">TEMPO DE TRABALHO</div>
+        </div>
+
+        <div class="sets-info">
+          <p>Série <strong id="serie-atual">1</strong> de <strong id="total-series">4</strong></p>
+          <p id="reps-info">10 - 12 repetições</p>
+        </div>
+
+        <div class="actions">
+          <button id="btn-start" onclick="toggleTimer()">▶ Iniciar</button>
+          <button id="btn-pause" onclick="toggleTimer()" style="display:none">⏸ Pausar</button>
+          <button onclick="concluirSerie()">✅ Concluir Série</button>
+          <button onclick="proximoExercicio()" class="skip">Pular Exercício</button>
+        </div>
+      </div>
+
+      <div class="footer-info">
+        Exercícios concluídos: <strong id="concluidos">0</strong>/<span id="total-exercicios">8</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
