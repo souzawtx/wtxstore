@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#070b14">
+<meta name="description" content="wtxstore ⚡ Sua experiência elevada a outro nível. Produtos digitais com preço baixo, envio rápido e garantia.">
+<title>wtxstore ⚡ | Loja Digital</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#070b14; --surface:#101a2e; --surface2:#152238; --line:#1e2c47;
+  --text:#e9eef8; --muted:#8fa0bd;
+  --yellow:#ffd21f; --cyan:#3ee6ff; --green:#2fe6a7; --coral:#ff5d73;
+  --display:'Unbounded',system-ui,sans-serif;
+  --body:'Space Grotesk',system-ui,sans-serif;
+  --cut:polygon(12px 0,100% 0,100% calc(100% - 12px),calc(100% - 12px) 100%,0 100%,0 12px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{background:var(--bg)}
+body{font-family:var(--body);color:var(--text);-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--yellow);color:#131313}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:-4px}
+::-webkit-scrollbar{width:10px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#22304d;border-radius:99px}
+.container{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.section{padding-block:3.4rem}
+
+/* ===== FUNDO ===== */
+.bg{position:fixed;inset:0;z-index:-1;background:var(--bg);overflow:hidden}
+.bg-grid{position:absolute;inset:0;opacity:.32;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(ellipse 95% 75% at 50% 0%,#000 25%,transparent 78%);
+  mask-image:radial-gradient(ellipse 95% 75% at 50% 0%,#000 25%,transparent 78%)}
+.bg-glow{position:absolute;border-radius:50%;filter:blur(10px)}
+.g1{width:62vw;height:62vw;top:-28vw;left:-16vw;background:radial-gradient(circle,rgba(255,210,31,.14),transparent 65%);animation:breathe 9s ease-in-out infinite}
+.g2{width:55vw;height:55vw;bottom:-24vw;right:-14vw;background:radial-gradient(circle,rgba(62,230,255,.11),transparent 65%);animation:breathe 11s ease-in-out infinite reverse}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.12);opacity:1}}
+.bg-sparks i{position:absolute;bottom:-10px;width:5px;height:5px;border-radius:50%;background:var(--yellow);opacity:0;animation:rise 10s linear infinite}
+.bg-sparks i:nth-child(1){left:6%;animation-duration:9s}
+.bg-sparks i:nth-child(2){left:18%;background:var(--cyan);animation-duration:13s;animation-delay:2s;width:4px;height:4px}
+.bg-sparks i:nth-child(3){left:31%;animation-duration:11s;animation-delay:4s}
+.bg-sparks i:nth-child(4){left:47%;background:var(--cyan);animation-duration:14s;animation-delay:1s;width:3px;height:3px}
+.bg-sparks i:nth-child(5){left:60%;animation-duration:9.5s;animation-delay:5s}
+.bg-sparks i:nth-child(6){left:72%;background:var(--cyan);animation-duration:12s;animation-delay:3s;width:4px;height:4px}
+.bg-sparks i:nth-child(7){left:85%;animation-duration:10.5s;animation-delay:6s}
+.bg-sparks i:nth-child(8){left:94%;background:var(--green);animation-duration:13.5s;animation-delay:.5s;width:3px;height:3px}
+@keyframes rise{0%{transform:translateY(0);opacity:0}10%{opacity:.7}85%{opacity:.35}100%{transform:translateY(-105vh);opacity:0}}
+
+/* ===== TOPO ===== */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(7,11,20,.85);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.topbar-in{display:flex;align-items:center;gap:1rem;height:64px}
+.logo{display:flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:800;font-size:1.02rem;flex-shrink:0}
+.logo b{color:var(--yellow)}
+.bolt{width:30px;height:30px;display:grid;place-items:center;background:var(--yellow);color:#131313;clip-path:var(--cut);animation:boltPulse 2.6s ease-in-out infinite}
+.bolt svg{width:16px;height:16px}
+@keyframes boltPulse{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(4deg) scale(1.1)}}
+.nav{display:flex;gap:.15rem;flex:1;justify-content:center;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav button{position:relative;font-weight:500;font-size:.9rem;color:var(--muted);padding:.55rem .85rem;white-space:nowrap;transition:color .25s}
+.nav button::after{content:"";position:absolute;left:.85rem;right:.85rem;bottom:2px;height:2px;background:var(--yellow);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.nav button:hover{color:var(--text)}
+.nav button.active{color:var(--yellow)}
+.nav button.active::after{transform:scaleX(1)}
+
+/* ===== BOTÕES ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--display);font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:1rem 1.7rem;clip-path:var(--cut);transition:transform .25s,background .25s,color .25s,border-color .25s,filter .25s}
+.btn svg{width:14px;height:14px}
+.btn-primary{background:var(--yellow);color:#131313}
+.btn-primary:hover{background:#ffe25e;transform:translateY(-2px);filter:drop-shadow(0 10px 22px rgba(255,210,31,.28))}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow);transform:translateY(-2px)}
+.btn-sm{padding:.7rem 1.15rem;font-size:.62rem;flex-shrink:0}
+
+/* ===== TICKER ===== */
+.ticker{overflow:hidden;border-bottom:1px solid var(--line);background:rgba(255,210,31,.045)}
+.ticker-track{display:flex;width:max-content;animation:tick 24s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-track span{display:flex;align-items:center;gap:2.2rem;padding:.68rem 1.1rem;font-family:var(--display);font-size:.62rem;font-weight:600;letter-spacing:.22em;color:var(--yellow);white-space:nowrap}
+.ticker-track em{font-style:normal;color:var(--muted)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ===== VIEWS ===== */
+.view{display:none}
+.view.active{display:block;animation:viewIn .5s cubic-bezier(.22,1,.36,1)}
+@keyframes viewIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ===== HERO ===== */
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:3rem;align-items:center;padding:3.8rem 0 3.2rem}
+.kicker{display:flex;align-items:center;gap:.8rem;font-size:.7rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--acc,var(--yellow))}
+.kicker::before{content:"";width:34px;height:2px;background:var(--acc,var(--yellow));flex-shrink:0}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5.6vw,3.7rem);line-height:1.06;text-transform:uppercase;margin:1.1rem 0 1.2rem}
+.hero h1 .stroke{color:transparent;-webkit-text-stroke:1.5px var(--yellow)}
+.hero h1 .hl{color:var(--yellow)}
+.hero h1 .mini-bolt{display:inline-block;width:.75em;height:.75em;color:var(--yellow);animation:boltPulse 2.2s ease-in-out infinite}
+.hero .lead{color:var(--muted);font-size:1.05rem;line-height:1.65;max-width:46ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.8rem}
+.live{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.4rem;font-size:.82rem;color:var(--muted)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(47,230,167,.55);animation:ping 1.8s ease-out infinite}
+@keyframes ping{to{box-shadow:0 0 0 10px rgba(47,230,167,0)}}
+.trust{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--line)}
+.trust span{display:inline-flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:500;color:var(--muted)}
+.trust svg{width:16px;height:16px;color:var(--yellow)}
+
+.stage{position:relative;perspective:950px;display:grid;place-items:center;min-height:400px}
+.featured-ghost{position:absolute;width:min(360px,88%);height:78%;border:1px solid var(--line);transform:rotate(-5deg) translate(-14px,14px);opacity:.7}
+.featured{position:relative;width:min(370px,92%);padding:1.9rem;background:linear-gradient(165deg,var(--surface2),#0d1626);border:1px solid #2a3c60;rotate:1.5deg;animation:float 6s ease-in-out infinite;transition:transform .3s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.f-badge{position:absolute;top:-13px;left:1.4rem;font-family:var(--display);font-size:.58rem;font-weight:800;letter-spacing:.14em;background:var(--yellow);color:#131313;padding:.42rem .8rem;clip-path:var(--cut)}
+.f-ico{width:56px;height:56px;display:grid;place-items:center;background:rgba(255,210,31,.1);color:var(--yellow);clip-path:var(--cut);margin-bottom:1.1rem}
+.f-ico svg{width:28px;height:28px}
+.featured h3{font-family:var(--display);font-size:1.15rem;font-weight:800;margin-bottom:.5rem}
+.featured p{color:var(--muted);font-size:.9rem;line-height:1.55}
+.f-btn{width:100%;margin-top:1.4rem}
+.chip{position:absolute;font-family:var(--display);font-size:.56rem;font-weight:800;letter-spacing:.12em;padding:.5rem .85rem;clip-path:var(--cut);animation:float 5s ease-in-out infinite}
+.chip-a{top:6%;left:-2%;background:rgba(47,230,167,.14);color:var(--green);border:1px solid rgba(47,230,167,.4);animation-delay:.8s;rotate:-5deg}
+.chip-b{bottom:8%;right:-2%;background:rgba(62,230,255,.12);color:var(--cyan);border:1px solid rgba(62,230,255,.4);animation-delay:1.6s;rotate:4deg}
+
+/* ===== SEÇÕES ===== */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:1.8rem;flex-wrap:wrap}
+.sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.3rem);text-transform:uppercase;margin-top:.8rem}
+.sec-link{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.85rem;color:var(--yellow);letter-spacing:.05em}
+.sec-link svg{width:16px;height:16px;transition:transform .3s}
+.sec-link:hover svg{transform:translateX(5px)}
+
+/* ===== CATEGORIAS ===== */
+.cats{display:grid;gap:1.1rem;grid-template-columns:1.08fr 1fr;grid-template-areas:"contas apps" "contas packs" "configs configs"}
+.cat{position:relative;display:flex;align-items:center;gap:1.2rem;text-align:left;padding:1.5rem 1.6rem;background:var(--surface);border:1px solid var(--line);overflow:hidden;transition:transform .3s,border-color .3s,background .3s}
+.cat-contas{grid-area:contas;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-height:350px;gap:1rem}
+.cat-apps{grid-area:apps}
+.cat-packs{grid-area:packs}
+.cat-configs{grid-area:configs}
+.cat:hover{transform:translateY(-4px);border-color:var(--acc);background:var(--acc-soft)}
+.cat-num{position:absolute;right:.9rem;bottom:-.6rem;font-family:var(--display);font-weight:800;font-size:5.2rem;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(233,238,248,.09);pointer-events:none}
+.cat-ico{width:54px;height:54px;flex-shrink:0;display:grid;place-items:center;background:var(--acc-soft);color:var(--acc);clip-path:var(--cut);transition:background .3s,color .3s,transform .3s}
+.cat-ico svg{width:26px;height:26px}
+.cat:hover .cat-ico{background:var(--acc);color:#0a0f1c;transform:rotate(-6deg) scale(1.06)}
+.cat-body{flex:1;min-width:0}
+.cat-name{display:block;font-family:var(--display);font-weight:800;font-size:1.1rem;text-transform:uppercase;margin-bottom:.25rem}
+.cat-desc{display:block;color:var(--muted);font-size:.88rem;line-height:1.5}
+.cat-contas .cat-name{font-size:1.5rem}
+.cat-meta{display:flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.cat-meta svg{width:15px;height:15px;transition:transform .3s}
+.cat:hover .cat-meta{color:var(--acc)}
+.cat:hover .cat-meta svg{transform:translateX(5px)}
+
+/* ===== REDES SOCIAIS ===== */
+.socials{display:grid;gap:.85rem}
+.social{display:flex;align-items:center;gap:1.1rem;padding:1.05rem 1.3rem;background:var(--surface);border:1px solid var(--line);transition:transform .3s,border-color .3s,box-shadow .3s}
+.social:hover{transform:translateX(8px);border-color:var(--brand);box-shadow:inset 4px 0 0 var(--brand)}
+.s-ico{width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;border:1px solid var(--line);color:var(--brand);transition:background .3s,color .3s,transform .3s,border-color .3s}
+.s-ico svg{width:21px;height:21px}
+.social:hover .s-ico{background:var(--brand);color:#0a0f1c;border-color:transparent;transform:rotate(-6deg) scale(1.05)}
+.s-txt{flex:1;min-width:0}
+.s-txt strong{display:block;font-family:var(--display);font-size:.85rem;font-weight:800;text-transform:uppercase}
+.s-txt em{display:block;font-style:normal;color:var(--muted);font-size:.85rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-arrow{color:var(--muted);transition:transform .3s,color .3s}
+.s-arrow svg{width:18px;height:18px}
+.social:hover .s-arrow{transform:translateX(5px);color:var(--brand)}
+
+/* ===== CATÁLOGO ===== */
+.cat-rows{display:grid;gap:1rem;padding-bottom:3rem}
+.cat-row{display:flex;align-items:center;gap:1.4rem;padding:1.7rem 1.8rem;background:var(--surface);border:1px solid var(--line);text-align:left;transition:transform .3s,border-color .3s,background .3s;position:relative;overflow:hidden}
+.cat-row:hover{transform:translateY(-4px);border-color:var(--acc);background:var(--acc-soft)}
+.cat-row .cat-ico{width:64px;height:64px}
+.cat-row .cat-ico svg{width:30px;height:30px}
+.cat-row:hover .cat-ico{background:var(--acc);color:#0a0f1c}
+.cat-row .cat-name{font-size:1.3rem}
+
+/* ===== MIGALHAS / PÁGINA ===== */
+.crumbs{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:2rem 0 0}
+.crumb-back{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.85rem;color:var(--muted);border:1px solid var(--line);padding:.55rem 1rem;transition:color .25s,border-color .25s,transform .25s}
+.crumb-back svg{width:15px;height:15px}
+.crumb-back:hover{color:var(--yellow);border-color:var(--yellow);transform:translateX(-3px)}
+.crumb-path{font-size:.82rem;color:var(--muted)}
+.crumb-path b{color:var(--text)}
+.page-head{display:flex;align-items:center;gap:1.4rem;margin:1.6rem 0 2rem}
+.page-ico{width:74px;height:74px;flex-shrink:0;display:grid;place-items:center;background:var(--acc-soft);color:var(--acc);clip-path:var(--cut)}
+.page-ico svg{width:36px;height:36px}
+.page-head h2{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,4vw,2.4rem);text-transform:uppercase;margin-top:.5rem}
+.page-desc{color:var(--muted);margin-top:.3rem}
+
+/* ===== PRODUTOS ===== */
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:1.1rem;padding-bottom:3.5rem}
+.prod{display:flex;flex-direction:column;gap:.65rem;text-align:left;padding:1.45rem;background:var(--surface);border:1px solid var(--line);transition:transform .3s,border-color .3s,filter .3s}
+.prod:hover{transform:translateY(-6px);border-color:var(--acc);filter:drop-shadow(0 14px 26px rgba(0,0,0,.45))}
+.prod-ico{width:48px;height:48px;display:grid;place-items:center;background:var(--acc-soft);color:var(--acc);clip-path:var(--cut);transition:transform .3s}
+.prod-ico svg{width:23px;height:23px}
+.prod:hover .prod-ico{transform:rotate(-6deg) scale(1.08)}
+.prod-name{font-family:var(--display);font-weight:800;font-size:.98rem;text-transform:uppercase}
+.prod p{color:var(--muted);font-size:.88rem;line-height:1.5;flex:1}
+.prod-foot{display:flex;justify-content:flex-end;margin-top:.4rem;padding-top:.9rem;border-top:1px solid var(--line)}
+.prod-go{display:inline-flex;align-items:center;gap:.35rem;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.prod-go svg{width:13px;height:13px;transition:transform .3s}
+.prod:hover .prod-go{color:var(--acc)}
+.prod:hover .prod-go svg{transform:translateX(4px)}
+
+/* ===== ESTADO VAZIO ===== */
+.empty{grid-column:1/-1;text-align:center;padding:3.5rem 1.5rem;border:1px dashed var(--line);background:var(--surface)}
+.empty-ico{width:70px;height:70px;margin:0 auto 1.2rem;display:grid;place-items:center;color:var(--muted);background:var(--surface2);clip-path:var(--cut)}
+.empty-ico svg{width:34px;height:34px}
+.empty h3{font-family:var(--display);font-size:1.3rem;text-transform:uppercase;margin-bottom:.6rem}
+.empty p{color:var(--muted);max-width:42ch;margin:0 auto 1.6rem;line-height:1.6}
+
+/* ===== DETALHE ===== */
+.detail{display:grid;grid-template-columns:.92fr 1.08fr;gap:2.4rem;align-items:start;margin:1.8rem 0 2.4rem}
+.d-media{position:relative;aspect-ratio:1/1;display:grid;place-items:center;border:1px solid var(--line);overflow:hidden;
+  background:radial-gradient(circle at 50% 45%,var(--acc-soft),transparent 62%),repeating-linear-gradient(-45deg,rgba(255,255,255,.022) 0 12px,transparent 12px 24px),var(--surface)}
+.d-media .big-ico{width:120px;height:120px;color:var(--acc);animation:float 5.5s ease-in-out infinite;filter:drop-shadow(0 0 26px var(--acc-soft))}
+.d-media .big-ico svg{width:100%;height:100%}
+.d-chip{position:absolute;bottom:1.2rem;right:1.2rem;display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:700;color:var(--green);background:rgba(7,11,20,.75);border:1px solid rgba(47,230,167,.4);padding:.5rem .8rem;animation:float 6s ease-in-out infinite;animation-delay:1s}
+.d-chip svg{width:14px;height:14px}
+.d-info h2{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3.6vw,2.2rem);text-transform:uppercase;margin:.9rem 0 .8rem}
+.d-desc{color:var(--muted);line-height:1.7;margin-bottom:1.6rem}
+.how{list-style:none;display:grid;gap:.6rem;margin-bottom:1.7rem}
+.how li{display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:.75rem 1rem}
+.how b{font-family:var(--display);color:var(--yellow);font-size:.78rem}
+.d-actions{display:flex;flex-wrap:wrap;gap:.9rem}
+.d-note{display:flex;align-items:center;gap:.55rem;margin-top:1.3rem;font-size:.8rem;color:var(--muted)}
+.d-note svg{width:15px;height:15px;color:var(--yellow);flex-shrink:0}
+.related{padding-bottom:3.5rem}
+.related h4{font-family:var(--display);font-size:.8rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.rel-row{display:flex;flex-wrap:wrap;gap:.7rem}
+.rel-chip{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.85rem;border:1px solid var(--line);background:var(--surface);padding:.7rem 1.1rem;transition:border-color .25s,color .25s,transform .25s}
+.rel-chip svg{width:14px;height:14px}
+.rel-chip:hover{border-color:var(--yellow);color:var(--yellow);transform:translateY(-2px)}
+
+/* ===== FOOTER ===== */
+footer{border-top:1px solid var(--line);background:rgba(10,16,28,.6);margin-top:2rem;padding-bottom:env(safe-area-inset-bottom)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding:3rem 0 2.2rem}
+.foot-brand p{color:var(--muted);font-size:.9rem;line-height:1.6;margin-top:.9rem;max-width:32ch}
+.foot-grid h5{font-family:var(--display);font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);margin-bottom:1.1rem}
+.foot-list{display:grid;gap:.55rem;justify-items:start}
+.foot-list button,.foot-list a{color:var(--muted);font-size:.9rem;transition:color .25s,transform .25s}
+.foot-list button:hover,.foot-list a:hover{color:var(--yellow);transform:translateX(4px)}
+.foot-bar{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:1.2rem 0;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+.foot-bar b{color:var(--yellow)}
+
+/* ===== REVEAL ===== */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0ms)}
+.rv.on{opacity:1;transform:none}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;gap:2.6rem;padding-top:2.8rem}
+  .stage{min-height:0;padding:1.5rem 0 .5rem}
+  .detail{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .cats{grid-template-columns:1fr;grid-template-areas:"contas" "apps" "packs" "configs"}
+  .cat-contas{min-height:250px}
+  .cat-row{flex-wrap:wrap}
+  .foot-grid{grid-template-columns:1fr}
+  .btn{padding:.95rem 1.3rem}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="bg-grid"></div>
+  <div class="bg-glow g1"></div>
+  <div class="bg-glow g2"></div>
+  <div class="bg-sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+
+<!-- ===== TOPO ===== -->
+<header class="topbar">
+  <div class="container topbar-in">
+    <button class="logo" data-action="home" aria-label="wtxstore — início">
+      <span class="bolt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-12h-7l1-8z"/></svg></span>
+      wtx<b>store</b>
+    </button>
+    <nav class="nav" aria-label="Navegação principal">
+      <button data-action="home" data-navkey="home">Início</button>
+      <button data-action="catalogo" data-navkey="catalogo">Catálogo</button>
+      <button data-action="categoria" data-cat="contas" data-navkey="contas">Conta a Venda</button>
+      <button data-action="categoria" data-cat="apps" data-navkey="apps">App</button>
+      <button data-action="categoria" data-cat="configs" data-navkey="configs">Config</button>
+    </nav>
+    <button class="btn btn-primary btn-sm" data-action="catalogo">Ver Produtos ⚡</button>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>⚡ PREÇO BAIXO <em>•</em> ENVIO RÁPIDO <em>•</em> GARANTIA <em>•</em> SUPORTE 100% HUMANIZADO <em>•</em> QUALIDADE PREMIUM <em>•</em></span>
+    <span>⚡ PREÇO BAIXO <em>•</em> ENVIO RÁPIDO <em>•</em> GARANTIA <em>•</em> SUPORTE 100% HUMANIZADO <em>•</em> QUALIDADE PREMIUM <em>•</em></span>
+  </div>
+</div>
+
+<main>
+
+<!-- ===== HOME ===== -->
+<section class="view active" id="view-home">
+  <div class="container">
+    <div class="hero">
+      <div>
+        <p class="kicker rv">Loja digital • wtxstore ⚡</p>
+        <h1 class="rv" style="--d:80ms">Sua experiência<br><span class="stroke">elevada</span> a<br><span class="hl">outro nível</span>
+          <svg class="mini-bolt" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-12h-7l1-8z"/></svg>
+        </h1>
+        <p class="lead rv" style="--d:160ms">Seu fornecedor de confiança para produtos digitais com os melhores preços, qualidade premium e suporte 100% humanizado.</p>
+        <div class="cta-row rv" style="--d:240ms">
+          <button class="btn btn-primary" data-action="catalogo">Ver Produtos
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>
+          </button>
+        </div>
+        <p class="live rv" style="--d:300ms"><i></i> Suporte online agora — resposta em minutos</p>
+        <div class="trust rv" style="--d:360ms">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L2 12V2h10l8.6 8.6a2 2 0 0 1 0 2.8z"/><circle cx="7" cy="7" r="1.3" fill="currentColor" stroke="none"/></svg> Preço Baixo</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="14" height="12" rx="1.5"/><path d="M15 8h4l3.5 3.5V16h-7.5V8z"/><circle cx="6" cy="18.5" r="2"/><circle cx="18" cy="18.5" r="2"/></svg> Envio Rápido</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><polyline points="9 11.5 11.2 13.7 15.5 9.5"/></svg> Garantia</span>
+        </div>
+      </div>
+
+      <div class="stage rv" style="--d:200ms" id="stage">
+        <div class="featured-ghost" aria-hidden="true"></div>
+        <article class="featured" id="featuredCard">
+          <span class="f-badge">⚡ DESTAQUE</span>
+          <span class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l-1.2-9.2L7.5 12 12 4.5 16.5 12l5.7-4.2L21 17H3z"/><path d="M4.5 20.5h15"/></svg></span>
+          <h3>App Premium Mod</h3>
+          <p>Versões modificadas premium com recursos exclusivos.</p>
+          <button class="btn btn-primary f-btn" data-action="produto" data-cat="apps" data-item="app-premium">Ver produto
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>
+          </button>
+        </article>
+        <span class="chip chip-a">⚡ ENVIO RÁPIDO</span>
+        <span class="chip chip-b">🛡 GARANTIA</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div class="sec-head rv">
+      <div>
+        <p class="kicker">Catálogo</p>
+        <h2>Explore o catálogo</h2>
+      </div>
+      <button class="sec-link" data-action="catalogo">ver tudo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>
+      </button>
+    </div>
+    <div class="cats" id="homeCats"></div>
+  </div>
+
+  <div class="container section">
+    <div class="sec-head rv">
+      <div>
+        <p class="kicker">Comunidade</p>
+        <h2>Cola com a wtxstore 👀</h2>
+      </div>
+    </div>
+    <div class="socials">
+      <a class="social rv" style="--brand:#ff4141" href="https://youtube.com/@souzawtx?si=F6oNamCpgwEBnh8p" target="_blank" rel="noopener">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></span>
+        <span class="s-txt"><strong>YouTube</strong><em>@souzawtx — conteúdos e tutoriais</em></span>
+        <span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg></span>
+      </a>
+      <a class="social rv" style="--brand:#4de8ee;--d:80ms" href="https://www.tiktok.com/@souzawtx?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+        <span class="s-txt"><strong>TikTok</strong><em>@souzawtx — vídeos e novidades</em></span>
+        <span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg></span>
+      </a>
+      <a class="social rv" style="--brand:#6a7bff;--d:160ms" href="https://discord.gg/NfZ3mVSFNx" target="_blank" rel="noopener">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+        <span class="s-txt"><strong>Discord</strong><em>Entre no servidor — suporte e novidades</em></span>
+        <span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg></span>
+      </a>
+      <a class="social rv" style="--brand:#ff5fa2;--d:240ms" href="https://www.instagram.com/souzawtx.01/" target="_blank" rel="noopener">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37a4 4 0 1 1-7.914 1.174A4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+        <span class="s-txt"><strong>Instagram</strong><em>Siga nossas novidades!</em></span>
+        <span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg></span>
+      </a>
+      <a class="social rv" style="--brand:#ffd21f;--d:320ms" href="https://beacons.ai/souzawtx" target="_blank" rel="noopener">
+        <span class="s-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        <span class="s-txt"><strong>Meu Site</strong><em>Visite agora!</em></span>
+        <span class="s-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CATÁLOGO ===== -->
+<section class="view" id="view-catalogo">
+  <div class="container">
+    <div class="crumbs">
+      <button class="crumb-back" data-action="home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="11 19 4 12 11 5"/></svg>
+        <span>Voltar</span>
+      </button>
+      <span class="crumb-path">Início / <b>Catálogo</b></span>
+    </div>
+    <header class="page-head rv">
+      <span class="page-ico" style="--acc:#ffd21f;--acc-soft:rgba(255,210,31,.08)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+      </span>
+      <div>
+        <p class="kicker">Explore o catálogo</p>
+        <h2>Todas as categorias</h2>
+        <p class="page-desc">Escolha uma categoria para navegar.</p>
+      </div>
+    </header>
+    <div class="cat-rows" id="catalogList"></div>
+  </div>
+</section>
+
+<!-- ===== CATEGORIA / PRODUTO (dinâmicas) ===== -->
+<section class="view" id="view-categoria"></section>
+<section class="view" id="view-produto"></section>
+
+</main>
+
+<!-- ===== RODAPÉ ===== -->
+<footer>
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <button class="logo" data-action="home">
+        <span class="bolt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-12h-7l1-8z"/></svg></span>
+        wtx<b>store</b>
+      </button>
+      <p>Sua experiência elevada a outro nível. Produtos digitais com qualidade premium e suporte de verdade.</p>
+    </div>
+    <div>
+      <h5>Loja</h5>
+      <div class="foot-list">
+        <button data-action="home">Início</button>
+        <button data-action="catalogo">Catálogo</button>
+        <button data-action="categoria" data-cat="contas">Conta a Venda</button>
+        <button data-action="categoria" data-cat="apps">App</button>
+        <button data-action="categoria" data-cat="packs">Pack</button>
+        <button data-action="categoria" data-cat="configs">Config</button>
+      </div>
+    </div>
+    <div>
+      <h5>Contato</h5>
+      <div class="foot-list">
+        <a href="https://discord.gg/NfZ3mVSFNx" target="_blank" rel="noopener">Discord</a>
+        <a href="https://youtube.com/@souzawtx?si=F6oNamCpgwEBnh8p" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.tiktok.com/@souzawtx?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://www.instagram.com/souzawtx.01/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://beacons.ai/souzawtx" target="_blank" rel="noopener">Meu Site</a>
+      </div>
+    </div>
+  </div>
+  <div class="container foot-bar">
+    <span>© 2026 <b>wtxstore</b> — todos os direitos reservados</span>
+    <span>feito com <b>⚡</b> pela wtxstore</span>
+  </div>
+</footer>
+
+<script>
+/* ================= ÍCONES ================= */
+const ICONS = {
+  phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg>',
+  monitor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>',
+  tablet:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2.5"/><line x1="11" y1="18.5" x2="13" y2="18.5"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.3 7 12 12 20.7 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>',
+  sliders:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l-1.2-9.2L7.5 12 12 4.5 16.5 12l5.7-4.2L21 17H3z"/><path d="M4.5 20.5h15"/></svg>',
+  user:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+  zap:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 3 14h7l-1 8 11-12h-7l1-8z"/></svg>',
+  arrow:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="11 19 4 12 11 5"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.6 8-10V5l-8-3-8 3v7c0 6.4 8 10 8 10z"/><polyline points="9 11.5 11.2 13.7 15.5 9.5"/></svg>',
+  truck:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="14" height="12" rx="1.5"/><path d="M15 8h4l3.5 3.5V16h-7.5V8z"/><circle cx="6" cy="18.5" r="2"/><circle cx="18" cy="18.5" r="2"/></svg>'
+};
+
+/* =====================================================
+   👇 LINKS — EDITE AQUI
+   "compra" = link do seu SITE DE COMPRA (checkout).
+   Enquanto não tiver, deixe '#'.
+===================================================== */
+const LINKS = {
+  compra:  '#',                          // 👈 COLE AQUI o link do site de compra
+  discord: 'https://discord.gg/NfZ3mVSFNx'
+};
+
+/* =====================================================
+   👇 ESTRUTURA DA LOJA (igual ao original, sem preços)
+   Para adicionar um produto, siga o modelo dentro de "items".
+===================================================== */
+const CATALOG = [
+  { id:'contas', name:'Conta a Venda', icon:'user', accent:'#ff5d73', soft:'rgba(255,93,115,.08)',
+    desc:'Contas disponíveis para venda',
+    items:[] },
+
+  { id:'apps', name:'App', icon:'crown', accent:'#ffd21f', soft:'rgba(255,210,31,.08)',
+    desc:'Aplicativos e versões modificadas',
+    items:[
+      { id:'app-premium',     name:'App Premium Mod',     short:'Versões modificadas premium',   icon:'crown' },
+      { id:'app-lite-pc',     name:'App Lite de PC',      short:'Versão leve para computador',   icon:'monitor' },
+      { id:'app-lite-mobile', name:'App Lite de Celular', short:'Versão leve para Android/iOS',  icon:'phone' }
+    ]},
+
+  { id:'packs', name:'Pack', icon:'box', accent:'#3ee6ff', soft:'rgba(62,230,255,.07)',
+    desc:'Combos e pacotes',
+    items:[] },
+
+  { id:'configs', name:'Config', icon:'sliders', accent:'#2fe6a7', soft:'rgba(47,230,167,.07)',
+    desc:'Configurações para cada dispositivo',
+    items:[
+      { id:'config-celular', name:'Celular', short:'Configurações para dispositivos móveis', icon:'phone' },
+      { id:'config-pc',      name:'PC',      short:'Configurações para computador',          icon:'monitor' },
+      { id:'config-tablet',  name:'Tablet',  short:'Configurações para tablets',             icon:'tablet' }
+    ]}
+];
+
+/* ================= NAVEGAÇÃO ================= */
+let current = 'home';
+const views = document.querySelectorAll('.view');
+
+function activate(id){
+  views.forEach(v => v.classList.toggle('active', v.id === 'view-' + id));
+  current = id;
+  window.scrollTo(0, 0);
+  const map = {home:'home', catalogo:'catalogo', categoria:'catalogo', produto:'catalogo'};
+  document.querySelectorAll('[data-navkey]').forEach(b =>
+    b.classList.toggle('active', b.dataset.navkey === map[id]));
+}
+
+function goHome(){ activate('home'); }
+function goCatalogo(){ activate('catalogo'); bindReveals(document.getElementById('view-catalogo')); }
+
+function goCategoria(id){
+  const c = CATALOG.find(x => x.id === id);
+  if(!c) return;
+  const hasItems = c.items.length > 0;
+  document.getElementById('view-categoria').innerHTML = `
+    <div class="container">
+      <div class="crumbs">
+        <button class="crumb-back" data-action="catalogo">${ICONS.back}<span>Catálogo</span></button>
+        <span class="crumb-path">Início / Catálogo / <b>${c.name}</b></span>
+      </div>
+      <header class="page-head rv">
+        <span class="page-ico" style="--acc:${c.accent};--acc-soft:${c.soft}">${ICONS[c.icon]}</span>
+        <div>
+          <p class="kicker" style="--acc:${c.accent}">Categoria</p>
+          <h2>${c.name}</h2>
+          <p class="page-desc">${c.desc}</p>
+        </div>
+      </header>
+      <div class="products">
+        ${hasItems ? c.items.map((p,i) => `
+          <button class="prod rv" style="--acc:${c.accent};--acc-soft:${c.soft};--d:${i*90}ms"
+                  data-action="produto" data-cat="${c.id}" data-item="${p.id}">
+            <span class="prod-ico">${ICONS[p.icon]}</span>
+            <span class="prod-name">${p.name}</span>
+            <p>${p.short}</p>
+            <span class="prod-foot"><span class="prod-go">ver detalhes ${ICONS.arrow}</span></span>
+          </button>`).join('')
+        : `
+          <div class="empty rv">
+            <span class="empty-ico">${ICONS.box}</span>
+            <h3>Em breve</h3>
+            <p>Nenhum produto nesta categoria ainda. Estamos preparando novidades — volte em breve! ⚡</p>
+            <button class="btn btn-ghost" data-action="catalogo">Ver outras categorias</button>
+          </div>`}
+      </div>
+    </div>`;
+  activate('categoria');
+  bindReveals(document.getElementById('view-categoria'));
+}
+
+function goProduto(catId, itemId){
+  const c = CATALOG.find(x => x.id === catId);
+  const p = c && c.items.find(x => x.id === itemId);
+  if(!p) return;
+  const detailName = c.id === 'configs' ? 'Config - ' + p.name : p.name;
+  const related = c.items.filter(x => x.id !== itemId);
+  document.getElementById('view-produto').innerHTML = `
+    <div class="container">
+      <div class="crumbs">
+        <button class="crumb-back" data-action="categoria" data-cat="${c.id}">${ICONS.back}<span>${c.name}</span></button>
+        <span class="crumb-path">Início / ${c.name} / <b>${detailName}</b></span>
+      </div>
+      <div class="detail">
+        <div class="d-media rv" style="--acc:${c.accent};--acc-soft:${c.soft}">
+          <span class="big-ico">${ICONS[p.icon]}</span>
+          <span class="d-chip">${ICONS.truck} envio rápido</span>
+        </div>
+        <div class="d-info rv" style="--d:120ms">
+          <p class="kicker" style="--acc:${c.accent}">${c.name}</p>
+          <h2>${detailName}</h2>
+          <p class="d-desc">${p.short}.</p>
+          <ul class="how">
+            <li><b>01</b> Clique em "Comprar" abaixo</li>
+            <li><b>02</b> Você será levado ao site de compra</li>
+            <li><b>03</b> Após o pagamento, receba seu produto ⚡</li>
+          </ul>
+          <div class="d-actions">
+            <a class="btn btn-primary" href="${LINKS.compra}" target="_blank" rel="noopener">Comprar ${ICONS.zap}</a>
+            <a class="btn btn-ghost" href="${LINKS.discord}" target="_blank" rel="noopener">Tirar dúvida</a>
+          </div>
+          <p class="d-note">${ICONS.shield} Compra segura pelo site • Entrega após confirmação • Suporte no Discord</p>
+        </div>
+      </div>
+      ${related.length ? `
+      <div class="related rv">
+        <h4>Outros em ${c.name}</h4>
+        <div class="rel-row">
+          ${related.map(r => `<button class="rel-chip" data-action="produto" data-cat="${c.id}" data-item="${r.id}">${ICONS[r.icon]} ${r.name}</button>`).join('')}
+        </div>
+      </div>` : ''}
+    </div>`;
+  activate('produto');
+  bindReveals(document.getElementById('view-produto'));
+}
+
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-action]');
+  if(!el) return;
+  const a = el.dataset.action;
+  if(a === 'home') goHome();
+  else if(a === 'catalogo') goCatalogo();
+  else if(a === 'categoria') goCategoria(el.dataset.cat);
+  else if(a === 'produto') goProduto(el.dataset.cat, el.dataset.item);
+});
+
+/* ================= RENDER ================= */
+document.getElementById('homeCats').innerHTML = CATALOG.map((c,i) => `
+  <button class="cat cat-${c.id} rv" style="--acc:${c.accent};--acc-soft:${c.soft};--d:${i*100}ms"
+          data-action="categoria" data-cat="${c.id}">
+    <span class="cat-num" aria-hidden="true">0${i+1}</span>
+    <span class="cat-ico">${ICONS[c.icon]}</span>
+    <span class="cat-body">
+      <span class="cat-name">${c.name}</span>
+      <span class="cat-desc">${c.desc}</span>
+    </span>
+    <span class="cat-meta">${c.items.length ? c.items.length + ' itens' : 'em breve'} ${ICONS.arrow}</span>
+  </button>`).join('');
+
+document.getElementById('catalogList').innerHTML = CATALOG.map((c,i) => `
+  <button class="cat-row rv" style="--acc:${c.accent};--acc-soft:${c.soft};--d:${i*100}ms"
+          data-action="categoria" data-cat="${c.id}">
+    <span class="cat-num" aria-hidden="true">0${i+1}</span>
+    <span class="cat-ico">${ICONS[c.icon]}</span>
+    <span class="cat-body">
+      <span class="cat-name">${c.name}</span>
+      <span class="cat-desc">${c.desc}</span>
+    </span>
+    <span class="cat-meta">${c.items.length ? c.items.length + ' itens' : 'em breve'} ${ICONS.arrow}</span>
+  </button>`).join('');
+
+/* ================= ANIMAÇÕES ================= */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); }
+  });
+}, { threshold:.12 });
+function bindReveals(scope){
+  (scope || document).querySelectorAll('.rv:not(.on)').forEach(el => io.observe(el));
+}
+bindReveals(document);
+
+const stage = document.getElementById('stage');
+const card = document.getElementById('featuredCard');
+if(stage && card && matchMedia('(hover:hover) and (pointer:fine)').matches){
+  stage.addEventListener('pointermove', e => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `rotateX(${(-y*7).toFixed(2)}deg) rotateY(${(x*9).toFixed(2)}deg)`;
+  });
+  stage.addEventListener('pointerleave', () => { card.style.transform = ''; });
+}
+</script>
+</body>
+</html>
